@@ -6,7 +6,6 @@ const Vigenere = require('caesar-salad').Vigenere;
 app.use(express.json());
 
 app.post("/encode", (req, res) => {
-    console.log(req.body);
     const plainText = req.body.message;
     const key = req.body.password;
     const cypherText = Vigenere.Cipher(key).crypt(plainText);
@@ -14,7 +13,6 @@ app.post("/encode", (req, res) => {
 });
 
 app.post("/decode", (req, res) => {
-    console.log(req.body);
     const cypherText = req.body.message;
     const key = req.body.password;
     const plainText = Vigenere.Decipher(key).crypt(cypherText);
