@@ -13,6 +13,14 @@ app.post("/encode", (req, res) => {
     res.send({"encoded": cypherText});
 });
 
+app.post("/decode", (req, res) => {
+    console.log(req.body);
+    const cypherText = req.body.message;
+    const key = req.body.password;
+    const plainText = Vigenere.Decipher(key).crypt(cypherText);
+    res.send({"decoded": plainText});
+});
+
 app.get("/", (req, res) => {
     res.send(`
     <style>
