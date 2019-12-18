@@ -2,8 +2,11 @@ const express = require("express");
 const app = express();
 const PORT = 8000;
 const Vigenere = require('caesar-salad').Vigenere;
+const cors = require('cors');
+
 
 app.use(express.json());
+app.use(cors());
 
 app.post("/encode", (req, res) => {
     const plainText = req.body.message;
